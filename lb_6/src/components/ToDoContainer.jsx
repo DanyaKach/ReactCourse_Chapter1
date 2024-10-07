@@ -5,19 +5,18 @@ import ToDoTable from './ToDoTable';
 import useGetAllToDo from '../hooks/useGetAllToDo';
 
 const ToDoContainer = () => {
-  const { toDoL, isLoading, error, setToDoL } = useGetAllToDo(); // Завантажуємо дані через хук
+  const { toDoL, isLoading, error, setToDoL } = useGetAllToDo(); 
   const [search, setSearch] = useState('');
 
   const addTodo = (title) => {
     const newTodoItem = { id: Date.now(), title };
-    setToDoL((prevTodos) => [...prevTodos, newTodoItem]); // Додаємо новий ToDo
+    setToDoL((prevTodos) => [...prevTodos, newTodoItem]);
   };
 
   const removeTodo = (id) => {
-    setToDoL((prevTodos) => prevTodos.filter((todo) => todo.id !== id)); // Видаляємо ToDo
+    setToDoL((prevTodos) => prevTodos.filter((todo) => todo.id !== id)); 
   };
 
-  // Функція для редагування ToDo
   const editTodo = (id, newTitle) => {
     setToDoL((prevTodos) =>
       prevTodos.map((todo) =>
