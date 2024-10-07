@@ -4,6 +4,14 @@ import SearchInput from './SearchInput';
 import ToDoTable from './ToDoTable';
 import useGetAllToDo from '../hooks/useGetAllToDo';
 
+const Loader = ({ isLoading, children }) => {
+  return (
+     <>
+        {isLoading &&  <div>Loading...</div>}
+        {children}
+     </>
+  )
+};
 const ToDoContainer = () => {
   const { toDoL, isLoading, error, setToDoL } = useGetAllToDo(); 
   const [search, setSearch] = useState('');
@@ -26,9 +34,11 @@ const ToDoContainer = () => {
 
   return (
     <div>
-      <AddToDoComponent onAdd={addTodo} />
       <SearchInput search={search} onSearchChange={setSearch} />
+      <Loader isLoading={isLoading}>
+      <AddToDoComponent onAdd={addTodo} />
       <ToDoTable todos={filteredTodos} onRemove={removeTodo} />
+        </Loader>
     </div>
   );
 };
