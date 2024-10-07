@@ -1,0 +1,70 @@
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: #f0f0f0;
+  background-color: #1c1c1e;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+  width: 60%;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+ul.todo-table {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.todo-table li {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.remove-btn {
+  background-color: #e74c3c;
+}
+
+button.remove-btn:hover {
+  background-color: #ff4d4d;
+}
