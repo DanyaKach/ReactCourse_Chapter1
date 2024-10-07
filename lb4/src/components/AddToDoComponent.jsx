@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
 
-function AddToDoComponent({ onAdd }) {
-  const [newTodo, setNewTodo] = useState('');
+const AddToDoComponent = ({ onAdd }) => {
+  const [inputValue, setInputValue] = useState('');
 
-  const handleAdd = () => {
-    if (newTodo.trim() !== '') {
-      onAdd(newTodo);
-      setNewTodo('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (inputValue.trim()) {
+      onAdd(inputValue); // Додаємо нове завдання через пропс
+      setInputValue(''); // Очищаємо інпут
     }
   };
 
   return (
-    <div className="add-todo">
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Add a new todo"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Add a new task"
       />
-      <button onClick={handleAdd}>Add Todo</button>
-    </div>
+      <button type="submit">Add</button>
+    </form>
   );
-}
+};
 
 export default AddToDoComponent;
